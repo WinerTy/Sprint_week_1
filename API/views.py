@@ -1,5 +1,8 @@
+import django_filters
+from rest_framework.response import Response
+
 from database.models import *
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from .serializers import *
 
 class UsersViewset(viewsets.ModelViewSet):
@@ -39,7 +42,7 @@ class PerevalsViewset(viewsets.ModelViewSet):
                 return Response(
                     {
                         'status': status.HTTP_200_OK,
-                        'message': 'Успех!',
+                        'message': 'Данные успешно отправленны и внесены в Базу Данных!',
                         'id': serializer.instance.pk,
                     }
                 )
@@ -49,7 +52,7 @@ class PerevalsViewset(viewsets.ModelViewSet):
                 return Response(
                     {
                         'status': status.HTTP_400_BAD_REQUEST,
-                        'message': 'Некорректный запрос',
+                        'message': 'неправильная валидация запроса',
                         'id': None,
                     }
                 )
