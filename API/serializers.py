@@ -1,6 +1,5 @@
 from database.models import *
 from rest_framework import serializers
-from rest_framework.serializers import ValidationError
 from drf_writable_nested import WritableNestedModelSerializer
 
 
