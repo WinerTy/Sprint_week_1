@@ -1,9 +1,9 @@
 import django_filters
 from rest_framework.response import Response
-
-from database.models import *
+from database.models import Users, Coords, Level, Images, Perevals
 from rest_framework import viewsets, status
-from .serializers import *
+from .serializers import UsersSerializer, CoordsSerializer, LevelSerializer, ImagesSerializer, PerevalsSerializer
+
 
 class UsersViewset(viewsets.ModelViewSet):
     queryset = Users.objects.all()

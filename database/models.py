@@ -8,6 +8,10 @@ class Users(models.Model):
     email = models.EmailField(max_length=128)
     phone = models.IntegerField(verbose_name='Телефон')
 
+    class Meta:
+        verbose_name = 'Пользователь'
+        verbose_name_plural = 'Пользователи'
+
     def __str__(self):
         return f'fam: {self.fam}, name: {self.name}, otc: {self.otc}, email: {self.email}, phone: {self.phone}'
 
@@ -16,6 +20,10 @@ class Coords(models.Model):
     latitude = models.FloatField(max_length=20, verbose_name='Широта')
     longitude = models.FloatField(max_length=20, verbose_name='Долгота')
     height = models.IntegerField(verbose_name='Высота')
+
+    class Meta:
+        verbose_name = 'Координаты'
+        verbose_name_plural = 'Координаты'
 
     def __str__(self):
         return f'Широта: {self.latitude}, Долгота: {self.longitude}, Высота: {self.height}.'
@@ -37,6 +45,10 @@ class Level(models.Model):
     autumn = models.CharField(max_length=2, choices=LEVEL, verbose_name='Осень')
     winter = models.CharField(max_length=2, choices=LEVEL, verbose_name='Зима')
     spring = models.CharField(max_length=2, choices=LEVEL, verbose_name='Весна')
+
+    class Meta:
+        verbose_name = 'Уровень сложности'
+        verbose_name_plural = 'Уровни сложности'
 
     def __str__(self):
         return f'Уровни сложности: Зима: {self.winter}, Лето: {self.summer}, ' \
@@ -60,6 +72,14 @@ class SprActivitiesTypes(models.Model):
     title = models.CharField(max_length=10, choices=CHOICES_TYPE, verbose_name='Тип похода')
 
 
+    class Meta:
+        verbose_name = 'Тип похода'
+        verbose_name_plural = 'Типы похода'
+
+    def __str__(self):
+        return f'Тип похода: {self.title}'
+
+
 class Perevals(models.Model):
     CHOICES_STATUS = [
         ('new', 'Создано'),
@@ -79,6 +99,10 @@ class Perevals(models.Model):
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
     coord = models.OneToOneField(Coords, on_delete=models.CASCADE)
 
+    class Meta:
+        verbose_name = 'Перевал'
+        verbose_name_plural = 'Перевалы'
+
     def __str__(self):
         return f'Перевал № {self.pk} - {self.beauty_title} находится в статусе "{self.status}".'
 
@@ -87,4 +111,8 @@ class Images(models.Model):
     pereval = models.ForeignKey(Perevals, on_delete=models.CASCADE, related_name='images')
     title = models.CharField(max_length=200, verbose_name='Название изображения')
     date_added = models.DateTimeField(auto_now_add=True, blank=True, null=True, verbose_name='Дата добавления')
-    image = models.ImageField(upload_to='images', verbose_name='Изображение', blank=True, null=True)
+    image = models.ImageField(upload_to='images/', verbose_name='Изображение', blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Изображение'
+        verbose_name_plural = 'Изображения'
