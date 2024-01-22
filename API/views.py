@@ -2,7 +2,7 @@ import django_filters
 from rest_framework.response import Response
 from database.models import Users, Coords, Level, Images, Perevals
 from rest_framework import viewsets, status
-from .serializers import UsersSerializer, CoordsSerializer, LevelSerializer, ImagesSerializer, PerevalsSerializer
+from .serializers import UsersSerializer, CoordsSerializer, LevelSerializer, ImagesSerializer, PerevalsSerializer, PerevalsUpdateSerializer
 
 
 class UsersViewset(viewsets.ModelViewSet):
@@ -67,3 +67,22 @@ class PerevalsViewset(viewsets.ModelViewSet):
                 )
         return super().create(request, *args, **kwargs)
 
+    def partial_update(self, request, *args, **kwargs):
+        if self.action == 'partial_update':
+            instance = self.get_object()
+            serializer = PerevalsUpdateSerializer(instance, data=request.data, partial=True)
+            if serializer.is_valid():
+                validated_data = serializer.validated_data
+                serializer.save()
+
+                validated_data['state'] = serializer.instance.state
+                validated_data['message'] = serializer.instance.message
+
+                return Response(validated_data)
+
+        return super().partial_update(request, *args, **kwargs)
+
+    def get_serializer_class(self):
+        if self.action == 'partial_update':
+            return PerevalsUpdateSerializer
+        return super().get_serializer_class()
