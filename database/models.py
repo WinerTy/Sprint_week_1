@@ -9,11 +9,11 @@ class Users(models.Model):
     phone = models.IntegerField(verbose_name='Телефон')
 
     class Meta:
-        verbose_name = 'Пользователь'
+        verbose_name = 'Пользователя'
         verbose_name_plural = 'Пользователи'
 
     def __str__(self):
-        return f'fam: {self.fam}, name: {self.name}, otc: {self.otc}, email: {self.email}, phone: {self.phone}'
+        return f'{self.name} {self.fam}'
 
 
 class Coords(models.Model):
@@ -22,7 +22,7 @@ class Coords(models.Model):
     height = models.IntegerField(verbose_name='Высота')
 
     class Meta:
-        verbose_name = 'Координаты'
+        verbose_name = 'Координату'
         verbose_name_plural = 'Координаты'
 
     def __str__(self):
@@ -51,33 +51,8 @@ class Level(models.Model):
         verbose_name_plural = 'Уровни сложности'
 
     def __str__(self):
-        return f'Уровни сложности: Зима: {self.winter}, Лето: {self.summer}, ' \
+        return f'Зима: {self.winter}, Лето: {self.summer}, ' \
                f'Осень: {self.autumn}, Весна: {self.spring}.'
-
-
-class SprActivitiesTypes(models.Model):
-    CHOICES_TYPE = [
-        ('foot', 'Пешком'),
-        ('ski', 'Лыжи'),
-        ('catamaran', 'Катамаран'),
-        ('kayak', 'Байдарка'),
-        ('raft', 'Плот'),
-        ('alloy', 'Сплав'),
-        ('bicycle', 'Велосипед'),
-        ('car', 'Автомобиль'),
-        ('sail', 'Парус'),
-        ('horseback', 'Верхом'),
-    ]
-
-    title = models.CharField(max_length=10, choices=CHOICES_TYPE, verbose_name='Тип похода')
-
-
-    class Meta:
-        verbose_name = 'Тип похода'
-        verbose_name_plural = 'Типы похода'
-
-    def __str__(self):
-        return f'Тип похода: {self.title}'
 
 
 class Perevals(models.Model):
@@ -88,23 +63,23 @@ class Perevals(models.Model):
         ('rejected', 'Отклонено')
     ]
 
-    beauty_title = models.CharField(max_length=200, verbose_name='Название перевала')
-    title = models.CharField(max_length=200, verbose_name='Название перевала')
-    other_titles = models.CharField(max_length=200)
-    connect = models.CharField(max_length=200)
+    beauty_title = models.CharField(max_length=200, verbose_name='Полное название перевала')
+    title = models.CharField(max_length=200, verbose_name='Название участка перевала')
+    other_titles = models.CharField(max_length=200, verbose_name='Допольнительно')
+    connect = models.CharField(max_length=200, verbose_name='Соединяется с')
     add_time = models.DateTimeField(auto_now_add=True, verbose_name='Дата добавления')
     status = models.CharField(max_length=10, choices=CHOICES_STATUS, default='new', verbose_name="Статус заявки")
 
-    level = models.ForeignKey(Level, on_delete=models.CASCADE)
-    user = models.ForeignKey(Users, on_delete=models.CASCADE)
-    coord = models.OneToOneField(Coords, on_delete=models.CASCADE)
+    level = models.ForeignKey(Level, on_delete=models.CASCADE, verbose_name='Уровень сложности')
+    user = models.ForeignKey(Users, on_delete=models.CASCADE, verbose_name='Турист')
+    coord = models.OneToOneField(Coords, on_delete=models.CASCADE, verbose_name='Координаты')
 
     class Meta:
         verbose_name = 'Перевал'
         verbose_name_plural = 'Перевалы'
 
     def __str__(self):
-        return f'Перевал № {self.pk} - {self.beauty_title} находится в статусе "{self.status}".'
+        return f'Перевал № {self.pk} - {self.beauty_title}'
 
 
 class Images(models.Model):
