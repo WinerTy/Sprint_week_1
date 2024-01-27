@@ -58,6 +58,7 @@ class Level(models.Model):
                f'Осень: {self.autumn}, Весна: {self.spring}.'
 
 
+
 # Главная таблица Перевалы
 class Perevals(models.Model):
     CHOICES_STATUS = [
