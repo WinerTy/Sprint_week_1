@@ -116,6 +116,17 @@ API отвечает и получает JSON как тело запроса
 - **status** 400 означет, что запрос не был обработан т.к в каком-то из полей была совершена ошибка.
 ![Изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_POST_deny.png)
 
+## ```Метод PATCH submitData``` 
+Данный метод используется для изменения сохраненных объектов
+Также имеет несколько статусов:
+- **status** 200 означает, что изменения в объекте были успешно применены и сохранены в Базу данных.
+![изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_PATCH_accept.png)
+- **status** 400 означает, что при изменении объекта произошла ошибка т.к обязательные поля были пустыми, статус объекта был изменен либо изменения были применины к информации о пользователе.
+![изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_PATCH_missingfield.png)
+![изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_PATCH_changestatus.png)
+![изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_PATCH_useredit.png)
+
+
 
 
 
