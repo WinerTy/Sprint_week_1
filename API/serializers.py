@@ -1,6 +1,7 @@
-from database.models import *
 from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 from drf_writable_nested import WritableNestedModelSerializer
+from database.models import Users, Coords, Level, Images, Perevals
 
 
 class UsersSerializer(serializers.ModelSerializer):
@@ -38,6 +39,56 @@ class PerevalsSerializer(WritableNestedModelSerializer):
     level = LevelSerializer()
     images = ImagesSerializer(many=True, required=False)
     status = serializers.CharField(read_only=True)
+
+    class Meta:
+        model = Perevals
+        fields = ['beauty_title',
+                  'title',
+                  'other_titles',
+                  'connect',
+                  'status',
+                  'add_time',
+                  'level',
+                  'user',
+                  'coord',
+                  'images'
+                  ]
+
+
+class PerevalsUpdateSerializer(WritableNestedModelSerializer):
+    add_time = serializers.DateTimeField(format='%Y-%m-%d %H:%M:%S', read_only=True)
+    user = UsersSerializer()
+    coord = CoordsSerializer()
+    level = LevelSerializer()
+    images = ImagesSerializer(many=True, required=False)
+    status = serializers.CharField(read_only=True)
+
+    # Проверка Валидации
+    def validate(self, validated_data):
+        user_val_data = validated_data['user']
+        user_original = self.instance.user
+        error_messages = []
+
+        if self.instance and self.instance.status != 'new':
+            error_messages.append({
+                "message": "Данный перевал принят в работу, информацию о нем уже нельзя поменять",
+                "state": "0"
+            })
+
+        if any(user_val_data[field] != getattr(user_original, field) for field in
+               ('fam', 'name', 'otc', 'email', 'phone')):
+            error_messages.append({
+                "message": "Информацию о пользователе нельзя изменять.",
+                "state": "0"
+            })
+
+        if error_messages:
+            raise ValidationError(error_messages)
+
+        validated_data['message'] = "Данные успешно изменены!"
+        validated_data['state'] = "1"
+
+        return validated_data
 
     class Meta:
         model = Perevals
