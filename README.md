@@ -88,14 +88,16 @@ API отвечает и получает JSON как тело запроса
  - { "status": 200, "message": null, "id": 42 }
 ![Изображения](
 
-### ```Метод GET submitData```
+## ```Метод GET submitData```
+Данный метод, позволяет получать информацию из Базы данных.
+Метод GET поддерживает следующее:
+    -**Получение всех записей**
+        Данный метод доступен по ссылке api/v1/submitData/
+        ![Изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_GET_all.png)
+    -**Получение записи по ID**
+        Данный метод позволяет получить определленую информацию основываясь на ее ID
+        Доступен по ссылке api/v1/submitData/<ID>
+        ![Изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_get_id_submitData.png)
 
-Позволяет получить все записи из Базы данных
-![Изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_GET_all.png)
-использовать /api/v1/submitData/
 
-
-### ```Метод GET submitData/<id>/```
-Позволяет получить получать JSON по ее ID
-![Изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_get_id_submitData.png)
 
