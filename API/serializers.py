@@ -1,8 +1,7 @@
-from rest_framework.exceptions import ValidationError
-
-from database.models import *
 from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 from drf_writable_nested import WritableNestedModelSerializer
+from database.models import Users, Coords, Level, Images, Perevals
 
 
 class UsersSerializer(serializers.ModelSerializer):
@@ -64,6 +63,7 @@ class PerevalsUpdateSerializer(WritableNestedModelSerializer):
     images = ImagesSerializer(many=True, required=False)
     status = serializers.CharField(read_only=True)
 
+    # Проверка Валидации
     def validate(self, validated_data):
         user_val_data = validated_data['user']
         user_original = self.instance.user

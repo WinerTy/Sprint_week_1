@@ -1,10 +1,13 @@
-import django_filters
-from rest_framework.response import Response
-from database.models import Users, Coords, Level, Images, Perevals
 from rest_framework import viewsets, status
+from rest_framework.response import Response
+
+import django_filters
+
 from .serializers import UsersSerializer, CoordsSerializer, LevelSerializer, ImagesSerializer, PerevalsSerializer, PerevalsUpdateSerializer
+from database.models import Users, Coords, Level, Images, Perevals
 
 
+# ВьюСеты
 class UsersViewset(viewsets.ModelViewSet):
     queryset = Users.objects.all()
     serializer_class = UsersSerializer
@@ -27,6 +30,7 @@ class ImagesViewset(viewsets.ModelViewSet):
     serializer_class = ImagesSerializer
 
 
+# главный ВьюСет для взаимодействия, отвечает за Создание и редактирование записей в БД
 class PerevalsViewset(viewsets.ModelViewSet):
     queryset = Perevals.objects.all()
     serializer_class = PerevalsSerializer

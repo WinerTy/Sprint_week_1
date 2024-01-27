@@ -2,6 +2,8 @@ from django.urls import path, include
 from rest_framework import routers
 from . import views
 
+# Роутеры ВьюСетов
+
 router = routers.DefaultRouter()
 router.register(r'users', views.UsersViewset)
 router.register(r'coords', views.CoordsViewset)

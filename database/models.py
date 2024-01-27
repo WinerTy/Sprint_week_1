@@ -1,6 +1,7 @@
 from django.db import models
 
 
+# Пользователи
 class Users(models.Model):
     fam = models.CharField(max_length=128, verbose_name='Фамилия')
     name = models.CharField(max_length=128, verbose_name='Имя')
@@ -16,6 +17,7 @@ class Users(models.Model):
         return f'{self.name} {self.fam}'
 
 
+# Координаты
 class Coords(models.Model):
     latitude = models.FloatField(max_length=20, verbose_name='Широта')
     longitude = models.FloatField(max_length=20, verbose_name='Долгота')
@@ -29,6 +31,7 @@ class Coords(models.Model):
         return f'Широта: {self.latitude}, Долгота: {self.longitude}, Высота: {self.height}.'
 
 
+# Уровни сложности
 class Level(models.Model):
     LEVEL = [
         ('1A', '1A'),
@@ -55,6 +58,7 @@ class Level(models.Model):
                f'Осень: {self.autumn}, Весна: {self.spring}.'
 
 
+# Главная таблица Перевалы
 class Perevals(models.Model):
     CHOICES_STATUS = [
         ('new', 'Создано'),
@@ -82,6 +86,7 @@ class Perevals(models.Model):
         return f'Перевал № {self.pk} - {self.beauty_title}'
 
 
+# Изображения
 class Images(models.Model):
     pereval = models.ForeignKey(Perevals, on_delete=models.CASCADE, related_name='images')
     title = models.CharField(max_length=200, verbose_name='Название изображения')
