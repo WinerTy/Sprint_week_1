@@ -1,4 +1,4 @@
-# Реализация REST API
+# REST API
 ![Изображение](https://sun1-85.userapi.com/h-4yU_2Q3pRdfmsnjYJEYTTC2L3ZV9BGqdz6rw/VQMnoWvzX5k.jpg)
 
 
@@ -37,6 +37,48 @@
 
 ## Реализация
 
+### Запрос/ответ
+API отвечает и получает JSON как тело запроса
+```
+{
+    "beauty_title": "TestAPIPOST",
+    "title": "TestAPIPOST",
+    "other_titles": "TestAPIPOST",
+    "connect": "TestAPIPOST",
+    "level": {
+        "summer": "2B",
+        "autumn": "2A",
+        "winter": "1A",
+        "spring": "3C"
+    },
+    "user": {
+        "fam": "TestAPIPOST",
+        "name": "TestAPIPOST",
+        "otc": "TestAPIPOST",
+        "email": "exampleasdTestAPIPOST2@emaple.com",
+        "phone": 123456789
+    },
+    "coord": {
+        "latitude": 222.0,
+        "longitude": 221232.0,
+        "height": 222
+    },
+    "images": [
+        {
+            "title": "TestAPIвфPOST",
+            "image": "https://i.pinimg.com/736x/7c/e0/7c/7ce07c4038b8831b2e9f75e06ab64e66.jpg"
+        }
+    ]
+}
+```
+
 ### ```Метод GET submitData```
 
+Позволяет получить все записи из Базы данных
+![изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_GET_all.png)
+использовать /api/v1/submitData/
+
+
+### ```Метод GET submitData/<id>/```
+Позволяет получить пол
 
