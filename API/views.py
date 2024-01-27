@@ -73,6 +73,7 @@ class PerevalsViewset(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         if self.action == 'partial_update':
+            print('Не пашет ')
             instance = self.get_object()
             serializer = PerevalsUpdateSerializer(instance, data=request.data, partial=True)
             if serializer.is_valid():
@@ -90,3 +91,4 @@ class PerevalsViewset(viewsets.ModelViewSet):
         if self.action == 'partial_update':
             return PerevalsUpdateSerializer
         return super().get_serializer_class()
+
