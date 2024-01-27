@@ -71,14 +71,31 @@ API отвечает и получает JSON как тело запроса
     ]
 }
 ```
+#### Результаты JSON 
+
+ - **status** — код HTTP, целое число:
+   - 500 — ошибка при выполнении операции;
+   - 400 — Bad Request (при нехватке полей);
+   - 200 — успех.
+ - **message** — строка:
+   - Причина ошибки (если она была);
+   - Отправлено успешно;
+   - Если отправка успешна, дополнительно возвращается id вставленной записи.
+ - **id** — идентификатор, который был присвоен объекту при добавлении в базу данных.
+
+**Примеры:**
+ - { "status": 500, "message": "Ошибка подключения к базе данных","id": null}
+ - { "status": 200, "message": null, "id": 42 }
+![Изображения](
 
 ### ```Метод GET submitData```
 
 Позволяет получить все записи из Базы данных
-![изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_GET_all.png)
+![Изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_GET_all.png)
 использовать /api/v1/submitData/
 
 
 ### ```Метод GET submitData/<id>/```
-Позволяет получить пол
+Позволяет получить получать JSON по ее ID
+![Изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_get_id_submitData.png)
 
