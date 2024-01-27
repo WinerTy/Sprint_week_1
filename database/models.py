@@ -88,7 +88,7 @@ class Perevals(models.Model):
 
 # Изображения
 class Images(models.Model):
-    pereval = models.ForeignKey(Perevals, on_delete=models.CASCADE, related_name='images')
+    pereval = models.ForeignKey(Perevals, on_delete=models.CASCADE, verbose_name='Перевал')
     title = models.CharField(max_length=200, verbose_name='Название изображения')
     date_added = models.DateTimeField(auto_now_add=True, blank=True, null=True, verbose_name='Дата добавления')
     image = models.ImageField(upload_to='images/', verbose_name='Изображение', blank=True, null=True)
