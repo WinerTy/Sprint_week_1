@@ -41,10 +41,10 @@
 API отвечает и получает JSON как тело запроса
 ```
 {
-    "beauty_title": "TestAPIPOST",
-    "title": "TestAPIPOST",
-    "other_titles": "TestAPIPOST",
-    "connect": "TestAPIPOST",
+    "beauty_title": "Tester_beauty_title",
+    "title": "Tester_Title",
+    "other_titles": "Tester_other_title",
+    "connect": "Test_connect",
     "level": {
         "summer": "2B",
         "autumn": "2A",
@@ -52,10 +52,10 @@ API отвечает и получает JSON как тело запроса
         "spring": "3C"
     },
     "user": {
-        "fam": "TestAPIPOST",
-        "name": "TestAPIPOST",
-        "otc": "TestAPIPOST",
-        "email": "exampleasdTestAPIPOST2@emaple.com",
+        "fam": "Tester",
+        "name": "TesterAPI",
+        "otc": "Testers",
+        "email": "Tester@emaple.com",
         "phone": 123456789
     },
     "coord": {
@@ -65,8 +65,8 @@ API отвечает и получает JSON как тело запроса
     },
     "images": [
         {
-            "title": "TestAPIвфPOST",
-            "image": "https://i.pinimg.com/736x/7c/e0/7c/7ce07c4038b8831b2e9f75e06ab64e66.jpg"
+            "title": "test",
+            "image": "test_image.png"
         }
     ]
 }
@@ -103,6 +103,13 @@ API отвечает и получает JSON как тело запроса
 - Данный метод позволяет получать все объекты от опубликованные от пользователя с Email который указан в поиске
 - Доступен по ссылке api/v1/submitData/?user__email=**email**
 ![Изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_get_email_submitData.png)
+
+## ```Метод POST submitData```
+Данный метод вызывается, когда пользователь нажимает на кнопку **Отправить** в мобильном приложении
+
+После нажатия на кнопку на API приходит JSON который был описан выше.
+На его основе создается запись в Базе данных.
+```Метод POST submitData```
 
 
 
