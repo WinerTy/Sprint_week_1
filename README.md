@@ -112,11 +112,11 @@ API отвечает и получает JSON как тело запроса
 
 ### ```Метод POST submitData``` имеет несколько статусов:
 - **status** 200 означает что запрос был обработан и успешно записан в Базу данных.
-![изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_POST_accepted.png)
+![Изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_POST_accepted.png)
 - **status** 400 означет, что запрос не был обработан т.к в каком-то из полей была совершена ошибка.
 ![Изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_POST_deny.png)
 
-## ```Метод PATCH submitData``` 
+### ```Метод PATCH submitData``` 
 Данный метод используется для изменения сохраненных объектов
 Также имеет несколько статусов:
 - **status** 200 означает, что изменения в объекте были успешно применены и сохранены в Базу данных.
@@ -126,7 +126,7 @@ API отвечает и получает JSON как тело запроса
 ![изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_PATCH_changestatus.png)
 ![изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_PATCH_useredit.png)
 
-
-
-
-
+## Схемы и информацияф по запросам к API
+Схемы были реализованы с помощью swagger, и доступны по ссылкам:
+- api/v1/docs/
+- api/v1/redoc/
