@@ -109,7 +109,12 @@ API отвечает и получает JSON как тело запроса
 
 После нажатия на кнопку на API приходит JSON который был описан выше.
 На его основе создается запись в Базе данных.
-```Метод POST submitData```
+
+###```Метод POST submitData``` имеет несколько статусов:
+    - **status** 200 означает что запрос был обработан и успешно записан в Базу данных.
+    ![изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_POST_accepted.png)
+    - **status** 400 означет, что запрос не был обработан т.к в каком-то из полей была совершена ошибка.
+    ![Изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_POST_deny.png)
 
 
 
