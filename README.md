@@ -2,7 +2,6 @@
 ![Изображение](https://sun1-85.userapi.com/h-4yU_2Q3pRdfmsnjYJEYTTC2L3ZV9BGqdz6rw/VQMnoWvzX5k.jpg)
 
 
-**[Данный REST API опубликован на]
 ## Описание
 На сайте https://pereval.online/ ФСТР ведёт базу горных перевалов, которая пополняется туристами.
 
@@ -132,5 +131,5 @@ API отвечает и получает JSON как тело запроса
 
 ## Схемы и информацияф по запросам к API
 Схемы были реализованы с помощью swagger, и доступны по ссылкам:
-- api/v1/docs/
-- api/v1/redoc/
+**api/v1/docs/**
+**api/v1/redoc/**
