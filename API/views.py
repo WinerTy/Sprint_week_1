@@ -52,7 +52,6 @@ class PerevalsViewset(viewsets.ModelViewSet):
                 )
 
             if status.HTTP_400_BAD_REQUEST:
-                print(serializer.errors)
                 return Response(
                     {
                         'status': status.HTTP_400_BAD_REQUEST,
@@ -73,7 +72,6 @@ class PerevalsViewset(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         if self.action == 'partial_update':
-            print('Не пашет ')
             instance = self.get_object()
             serializer = PerevalsUpdateSerializer(instance, data=request.data, partial=True)
             if serializer.is_valid():
