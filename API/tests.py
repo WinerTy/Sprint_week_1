@@ -70,14 +70,14 @@ class APIMethodTestCase(TestCase):
             ]
         }
         response = self.client.post(url, json.dumps(data), content_type='application/json')
-        self.assertEqual(response.status_code, 200)  # Ожидаем, что статус ответа будет 201 (Created)
+        self.assertEqual(response.status_code, 200)
         new_object = Perevals.objects.last()
         ic(new_object)
         ic('Конец POST метода')
 
     def test_patch_request(self):
-        ic('Начало теста PATCH метод')
         url = reverse('submitdata-list')
+        ic('Начало теста PATCH метод')
         data = {
             "beauty_title": "TestAPIPOST",
             "title": "TestAPIPOST",
