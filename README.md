@@ -129,7 +129,7 @@ API отвечает и получает JSON как тело запроса
 **Изменение информации о пользователе**
 ![изображение](https://raw.githubusercontent.com/WinerTy/Sprint_week_1/main/readme_img/method_PATCH_useredit.png)
 
-## Схемы и информацияф по запросам к API
+## Схемы и информацию по запросам к API
 Схемы были реализованы с помощью swagger, и доступны по ссылкам:
 - **api/v1/docs/**
 - **api/v1/redoc/**
