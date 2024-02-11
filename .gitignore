@@ -1,8 +1,26 @@
-# PyCharm
-# http://www.jetbrains.com/pycharm/webhelp/project.html
-.idea
-.iml
+# Byte-compiled / optimized / DLL files
+
+# Distribution / packaging
+.Python
+build/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+.venv
+.installed.cfg
+*.egg
+*.egg-info/
+.plaintext
+
+__pycache__
+*.py[cod]
+*$py.class
+
+# Django
 static/
-# virtualenv
-venv/
 .env
